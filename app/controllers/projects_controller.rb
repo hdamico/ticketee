@@ -11,6 +11,12 @@ class ProjectsController < ApplicationController
     def new
         @project = Project.new
     end
+    def destroy
+        @project = Project.find(params[:id]) 
+        @project.destroy
+        flash[:notice] = "Project has been deleted." 
+        redirect_to projects_path
+    end
     def update
         @project = Project.find(params[:id])
 
@@ -29,7 +35,8 @@ class ProjectsController < ApplicationController
             flash[:notice] = "Project has been created."
             redirect_to @project
         else
-            # nothing, yet
+            flash.now[:alert] = "Project has not been created."
+            render "new"
         end
     end
 

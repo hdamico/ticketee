@@ -6,13 +6,13 @@ default: &default
 development:
  <<: *default
  database: oyga_development
- username: postgres
+ username: hernan
  password: root
 
 test:
  <<: *default
  database: oyga_test
- username: postgres
+ username: hernan
  password: root
 
 production:

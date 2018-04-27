@@ -1,0 +1,13 @@
+<% title(@ticket.name, "Tickets") %>
+<header>
+    <h1><%= @ticket.name %></h1>
+    <ul class="actions">
+        <li><%= link_to "Edit Ticket", edit_project_ticket_path(@ticket),
+            class: "edit" %></li>
+        <li><%= link_to "Delete Ticket", project_ticket_path(@project, @ticket),
+            method: :delete,
+            data: { confirm: "Are you sure you want to delete this ticket?" },
+            class: "delete" %></li>
+    </ul>
+</header>
+<p><%= @ticket.description %></p>
